@@ -2,7 +2,7 @@
 
 const units = {
   long: ['just now', 'nanosecond', 'microsecond', 'millisecond', 'second', 'minute', 'hour', 'day', 'week', 'year'],
-  short: ['now', 'ns', 'μs', 'ms', 's', 'm', 'h', 'd', 'w', 'y']
+  short: ['now', 'ns', 'μs', 'ms', 'sec', 'min', 'h', 'd', 'w', 'y']
 };
 
 function tinyHumanTime(t1, t2, u) {
