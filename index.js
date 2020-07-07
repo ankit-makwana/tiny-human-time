@@ -11,7 +11,7 @@ function tinyHumanTime(t1, t2, u) {
   t2 = Array.isArray(t2) ? t2[0] * 1e3 + t2[1] / 1e6 : t2;
   let milli = Math.abs(isNaN(+t2) ? t1 : t2 - t1);
 
-  if (milli === 0)           return units[u][0];
+  if (milli === 0)           return ["",units[u][0]];
   if (milli < 1e-3)          return format(Math.floor(milli * 1e6), units[u][1], u);
   if (milli < 1)             return format(Math.floor(milli * 1e3), units[u][2], u);
   if (milli < 1000)          return format(Math.floor(milli), units[u][3], u);
@@ -30,5 +30,5 @@ tinyHumanTime.short = function short(t1, t2) {
 module.exports = tinyHumanTime;
 
 function format(n, unit, mode) {
-  return `${n + (mode === 'short' ? '' : ' ')}${unit}${mode === 'short' || n === 1 ? '' : 's'}`;
+  return [`${n + (mode === 'short' ? '' : ' ')}`,`${unit}${mode === 'short' || n === 1 ? '' : 's'}`];
 }
